@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:include="layout :: htmlhead">
+
+
+</head>
+<body>
+    <div class="container" >
+        <nav th:replace="layout :: menu">(menu)</nav>
+     
+        <form th:action="@{/fornecedor/(form)}" th:object="${fornecedor}" method="POST">
+            <input type="hidden" th:field="*{id}">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="txtnome">Nome Fornecedor:</label>
+                        <input type="text" th:field="*{nome}" 
+                        id="txtnome"class="form-control">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">    
+                <div class="col">
+                    <div class="form-group">
+                        <label for="txturlAPI">URL API:</label>
+                        <input type="text"  th:field="*{urlAPI}" 
+                        id="txturlAPI"class="form-control">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="txturlAPIAuth">URL APIAUTH</label>
+                        <input type="text" th:field="*{urlAPIAuth}" 
+                        id="txturlAPIAuth" class="form-control">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="usuario">USUÁRIO</label>
+                        <input type="text" th:field="*{usuario}" 
+                        id="txtusuario" class="form-control">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="txtsenha">SENHA</label>
+                        <input type="password" name="password" th:field="*{senha}" 
+                        id="txtsenha" class="form-control">
+                        <span class="ln lnr-eye"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <button type="subimit">Enviar</button>
+        </form>
+        
+    </div>
+    <div th:include="layout :: footer" id="footer">(footer)</div>
+</body>
+</html> 
